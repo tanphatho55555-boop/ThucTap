@@ -3,6 +3,7 @@ const todoInput = document.getElementById('todo-input');
 const addBtn = document.getElementById('add-btn');
 const todoList = document.getElementById('todo-list');
 const deleteBtn = document.getElementById('delete-btn');
+const editBtn = document.getElementById('edit-btn');
 // 2. Mảng chứa danh sách công việc
 let tasks = [];
 
@@ -15,7 +16,10 @@ function renderTasks() {
         li.className = task.completed ? 'completed' : '';
         li.innerHTML = `
             <span>${task.text}</span>
+
             <button onclick="editTask(${index})">Cập nhật</button>
+
+
             <button onclick="deleteTask(${index})">Xóa</button>
         `;
         todoList.appendChild(li);
@@ -53,7 +57,10 @@ deleteBtn.addEventListener('click', () => {
         tasks = []; 
         renderTasks(); 
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 44c2db742fecfd1242633506f35301623e59f83f
 });
 // 7. Hàm sửa công việc
 window.editTask = function(index) {
