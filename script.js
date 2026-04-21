@@ -2,7 +2,7 @@
 const todoInput = document.getElementById('todo-input');
 const addBtn = document.getElementById('add-btn');
 const todoList = document.getElementById('todo-list');
-
+const deleteBtn = document.getElementById('delete-btn');
 // 2. Mảng chứa danh sách công việc
 let tasks = [];
 
@@ -40,7 +40,16 @@ function addTask() {
 }
 
 // 5. Hàm xóa (Phải có hàm này thì render mới không bị lỗi khi bấm nút Xóa)
-
+function deleteTask(index) {
+    tasks.splice(index, 1); 
+    renderTasks(); 
+}
 
 // 6. Lắng nghe sự kiện click
 addBtn.addEventListener('click', addTask);
+deleteBtn.addEventListener('click', () => {
+    if (confirm("Bạn có chắc muốn xóa tất cả công việc không?")) {
+        tasks = []; 
+        renderTasks(); 
+    }
+});
