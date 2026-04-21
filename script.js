@@ -15,6 +15,7 @@ function renderTasks() {
         li.className = task.completed ? 'completed' : '';
         li.innerHTML = `
             <span>${task.text}</span>
+            <button onclick="editTask(${index})">Cập nhật</button>
             <button onclick="deleteTask(${index})">Xóa</button>
         `;
         todoList.appendChild(li);
@@ -52,4 +53,15 @@ deleteBtn.addEventListener('click', () => {
         tasks = []; 
         renderTasks(); 
     }
+
 });
+// 7. Hàm sửa công việc
+window.editTask = function(index) {
+    const currentText = tasks[index].text;
+    const newText = prompt("Cập nhật công việc:", currentText);
+
+    if (newText !== null && newText.trim() !== "") {
+        tasks[index].text = newText.trim(); // Cập nhật dữ liệu
+        renderTasks();                      // Vẽ lại màn hình
+    }
+};
