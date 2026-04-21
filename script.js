@@ -57,10 +57,7 @@ deleteBtn.addEventListener('click', () => {
         tasks = []; 
         renderTasks(); 
     }
-<<<<<<< HEAD
 
-=======
->>>>>>> 44c2db742fecfd1242633506f35301623e59f83f
 });
 // 7. Hàm sửa công việc
 window.editTask = function(index) {
